@@ -21,6 +21,9 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import layout.RecommendFragment;
+import layout.RequestFragment;
+import layout.SettingFragment;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -146,7 +149,18 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return SuperAwesomeCardFragment.newInstance(position);
+            switch (position) {
+                case 0: {
+                    //Request
+                    return RequestFragment.newInstance();
+                }
+                case 1: { //Recommend
+                    return RecommendFragment.newInstance();
+                }
+                case 2: //Setting
+                    return SettingFragment.newInstance();
+            }
+            return null;
         }
     }
 
