@@ -19,7 +19,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity  {
 
     EditText idText;
     EditText passwordText;
@@ -129,4 +129,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 }
