@@ -53,12 +53,11 @@
         android:id="@+id/idText"
         android:layout_width="240dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/passwordText"
-        android:layout_alignStart="@+id/passwordText"
-        android:layout_below="@+id/radioGroup"
-        android:layout_marginTop="10dp"
         android:hint="아이디 (영문+숫자, 4자이상)"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignLeft="@+id/passwordText"
+        android:layout_alignStart="@+id/passwordText" />
 
     <Button
         android:id="@+id/idcheckButton"
@@ -74,10 +73,11 @@
         android:id="@+id/passwordText"
         android:layout_width="360dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/idText"
-        android:layout_centerHorizontal="true"
         android:hint="비밀번호 (6자 이상)"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_below="@+id/idText"
+        android:layout_alignLeft="@+id/nameText"
+        android:layout_alignStart="@+id/nameText" />
 
     <EditText
         android:id="@+id/nameText"
@@ -146,15 +146,15 @@
         android:id="@+id/introductionText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/sexSpinner"
-        android:layout_alignRight="@+id/sexSpinner"
-        android:layout_below="@+id/addressText"
         android:hint="자기소개 (종목/경력) 등.\n(ex. 스피드 스케이팅/롱트랙\n2014 동계 올림픽 은메달) "
         android:inputType="textMultiLine"
         android:lines="3"
 
         android:maxLines="10"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:layout_below="@+id/addressText"
+        android:layout_alignLeft="@+id/sexView"
+        android:layout_alignStart="@+id/sexView" />
 
     <CheckBox
         android:id="@+id/agreeCheckBox"

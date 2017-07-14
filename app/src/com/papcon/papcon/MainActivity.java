@@ -1,20 +1,13 @@
 package com.papcon.papcon;
 
 import android.os.Bundle;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.TransitionDrawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
-import android.view.Menu;
-import android.widget.Toast;
 
 import fragment.RecommendFragment;
 import fragment.RequestFragment;
@@ -35,8 +28,6 @@ public class MainActivity extends ActionBarActivity {
     ViewPager pager;
 
     private MyPagerAdapter adapter;
-    private Drawable oldBackground = null;
-    private int currentColor;
     private SystemBarTintManager mTintManager;
 
     @Override
@@ -56,63 +47,6 @@ public class MainActivity extends ActionBarActivity {
                 .getDisplayMetrics());
         pager.setPageMargin(pageMargin);
         pager.setCurrentItem(1);
-        changeColor(ContextCompat.getColor(getBaseContext(), R.color.light_black));
-
-        tabs.setOnTabReselectedListener(new PagerSlidingTabStrip.OnTabReselectedListener() {
-            @Override
-            public void onTabReselected(int position) {
-                switch (position){
-                    case 0:
-                        Toast.makeText(MainActivity.this, "등록하기", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                        Toast.makeText(MainActivity.this, "추천보기", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(MainActivity.this, "환경설정", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-
-    private void changeColor(int newColor) {
-        tabs.setBackgroundColor(newColor);
-        mTintManager.setTintColor(newColor);
-        // change ActionBar color just if an ActionBar is available
-        Drawable colorDrawable = new ColorDrawable(newColor);
-        Drawable bottomDrawable = new ColorDrawable(ContextCompat.getColor(getBaseContext(), android.R.color.transparent));
-        LayerDrawable ld = new LayerDrawable(new Drawable[]{colorDrawable, bottomDrawable});
-        if (oldBackground == null) {
-            getSupportActionBar().setBackgroundDrawable(ld);
-        } else {
-            TransitionDrawable td = new TransitionDrawable(new Drawable[]{oldBackground, ld});
-            getSupportActionBar().setBackgroundDrawable(td);
-            td.startTransition(200);
-        }
-
-        oldBackground = ld;
-        currentColor = newColor;
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("currentColor", currentColor);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        currentColor = savedInstanceState.getInt("currentColor");
-        changeColor(currentColor);
     }
 
     public class MyPagerAdapter extends FragmentPagerAdapter {

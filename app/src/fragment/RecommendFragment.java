@@ -49,6 +49,7 @@ public class RecommendFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_recommend, container, false);
         ButterKnife.bind(this, rootView);
         ViewCompat.setElevation(rootView, 50);
+
         String[] menuItems = {"안녕", "하이", "오하이오", "할라",
                 "안녕", "하이", "오하이오", "할라",
                 "안녕", "하이", "오하이오", "할라",
@@ -60,6 +61,7 @@ public class RecommendFragment extends Fragment {
                 menuItems
         );
         listView.setAdapter(listViewAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
