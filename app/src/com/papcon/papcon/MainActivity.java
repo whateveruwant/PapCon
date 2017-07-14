@@ -1,7 +1,5 @@
 package com.papcon.papcon;
 
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -18,25 +16,14 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.widget.Toast;
 
+import fragment.RecommendFragment;
+import fragment.RequestFragment;
+import fragment.SettingFragment;
+
 import com.astuetz.PagerSlidingTabStrip;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import layout.RecommendFragment;
-import layout.RequestFragment;
-import layout.SettingFragment;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -115,11 +102,6 @@ public class MainActivity extends ActionBarActivity {
         currentColor = newColor;
     }
 
-    //public void onColorClicked(View v) {
-    //    int color = Color.parseColor(v.getTag().toString());
-    //    changeColor(color);
-    //}
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -154,15 +136,15 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 0: {
-                    //Request
+                case 0: { //Request
                     return RequestFragment.newInstance();
                 }
                 case 1: { //Recommend
                     return RecommendFragment.newInstance();
                 }
-                case 2: //Setting
+                case 2: {//Setting
                     return SettingFragment.newInstance();
+                }
             }
             return null;
         }

@@ -21,6 +21,11 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ManagementActivity" />
+        <activity android:name=".InformActivity" />
+        <activity android:name=".InventoryActivity" />
+        <activity android:name=".GuideActivity" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".InquireActivity"></activity>
     </application>
 
 </manifest>

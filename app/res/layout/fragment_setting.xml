@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="layout.SettingFragment">
+    tools:context="fragment.SettingFragment">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -12,14 +12,24 @@
         app:cardBackgroundColor="@color/cardview_dark_background"
         app:cardCornerRadius="8dp">
 
-        <TextView
-            android:id="@+id/textView"
+        <Switch
+            android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="30dp"
-            tools:text="TEST TEXT"
-            tools:textColor="@android:color/white" />
+            android:layout_marginTop="410dp"
+            android:layout_marginLeft="15dp"
+            android:text="알림받기"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"/>
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="396dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"></ListView>
+
     </android.support.v7.widget.CardView>
 
 </FrameLayout>
