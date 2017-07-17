@@ -3,6 +3,7 @@ package com.papcon.papcon;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,9 +35,13 @@ public class RegisterActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        final RadioButton radioButton = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
         final EditText idText = (EditText) findViewById(R.id.idText);
         final EditText passwordText = (EditText) findViewById(R.id.passwordText);
         final EditText nameText = (EditText) findViewById(R.id.nameText);
+        final EditText addressText = (EditText) findViewById(R.id.addressText);
+        final EditText introductionText = (EditText) findViewById(R.id.introductionText);
 
         Button registerButton = (Button) findViewById(R.id.registerButton);
 
@@ -71,13 +78,18 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String userType = radioButton.getText().toString();
                 String userID = idText.getText().toString();
                 String userPassword = passwordText.getText().toString();
                 String userName = nameText.getText().toString();
+                String userSex = sexSpinner.getSelectedItem().toString();
                 int userAge = Integer.parseInt(ageSpinner.getSelectedItem().toString()); //String을 integer형으로 형변환
+                String userAddress = addressText.getText().toString();
+                String userInfo = introductionText.getText().toString();
 
                 Response.Listener<String> responseListner = new Response.Listener<String>(){
                     @Override
@@ -107,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName, userAge, responseListner);
+                RegisterRequest registerRequest = new RegisterRequest(userType, userID, userPassword, userName, userSex, userAge, userAddress,userInfo, responseListner);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
             }
