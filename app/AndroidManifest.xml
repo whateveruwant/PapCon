@@ -25,7 +25,8 @@
         <activity android:name=".InventoryActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".MessageActivity" />
-        <activity android:name=".InquireActivity"></activity>
+        <activity android:name=".InquireActivity" />
+        <activity android:name=".RecommendActivity"></activity>
     </application>
 
 </manifest>
