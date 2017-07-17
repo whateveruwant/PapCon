@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                             }
                             else{
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this,R.style.DialogStyle);
                                 builder.setMessage("로그인에 실패하였습니다.")
                                         .setNegativeButton("다시 시도", null)
                                         .create()

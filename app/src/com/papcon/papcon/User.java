@@ -5,6 +5,7 @@ package com.papcon.papcon;
  */
 
 public class User {
+
     String usrID;
     String userPassword;
     String userName;
