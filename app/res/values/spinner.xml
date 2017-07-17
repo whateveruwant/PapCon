@@ -2,8 +2,8 @@
 
 <resources>
     <string-array name="sex">
-        <item >남자</item>
-        <item >여자</item>
+        <item >man</item>
+        <item >women</item>
     </string-array>
 
     <string-array name="age">

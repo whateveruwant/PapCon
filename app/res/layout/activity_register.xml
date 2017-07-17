@@ -31,7 +31,7 @@
 
         <RadioButton
             android:id="@+id/studentCheck"
-            android:text="학생"
+            android:text="student"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -41,7 +41,7 @@
 
         <RadioButton
             android:id="@+id/coachCheck"
-            android:text="코치"
+            android:text="coach"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
