@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#d1d1d1"
+    android:background="#000000"
     tools:context="com.papcon.papcon.ManagementActivity">
 
     <ListView
@@ -15,6 +15,6 @@
         android:layout_marginTop = "10dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:dividerHeight="10dp"
-        android:divider="#d1d1d1"></ListView>
+        android:dividerHeight="5dp"
+        android:divider="#000000"></ListView>
 </LinearLayout>

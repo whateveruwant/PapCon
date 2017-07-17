@@ -18,7 +18,7 @@ public class UserListAdapter extends BaseAdapter {
     private List<User> userList;
 
     public UserListAdapter(Context context, List<User> userList) {
-        this.context =context;
+        this.context = context;
         this.userList = userList;
     }
 

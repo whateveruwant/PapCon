@@ -76,9 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userPassword = passwordText.getText().toString();
                 String userName = nameText.getText().toString();
                 String userSex = sexSpinner.getSelectedItem().toString();
-                int userAge = Integer.parseInt(ageSpinner.getSelectedItem().toString()); //String을 integer형으로 형변환
+                int userAge = Integer.parseInt(ageSpinner.getSelectedItem().toString());
                 String userAddress = addressText.getText().toString();
                 String userInfo = introductionText.getText().toString();
 
@@ -119,7 +116,8 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(userType, userID, userPassword, userName, userSex, userAge, userAddress,userInfo, responseListner);
+
+                RegisterRequest registerRequest = new RegisterRequest(userType, userID, userPassword, userName, userSex, userAge, userAddress, userInfo, responseListner);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
             }
