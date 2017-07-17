@@ -9,14 +9,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 
-import fragment.RecommendFragment;
-import fragment.RequestFragment;
-import fragment.SettingFragment;
-
 import com.astuetz.PagerSlidingTabStrip;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fragment.RecommendFragment;
+import fragment.RequestFragment;
+import fragment.SettingFragment;
 
 
 public class MainActivity extends ActionBarActivity {
