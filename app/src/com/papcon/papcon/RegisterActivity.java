@@ -156,25 +156,28 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(!checkedID.equals(userID)){
                     Toast.makeText(RegisterActivity.this,"아이디 중복확인을 해주세요.",Toast.LENGTH_SHORT).show();
-
                 }
                 else if (!Pattern.matches("^[a-zA-Z0-9]*.{4,20}$",userID )){
                     Toast.makeText(RegisterActivity.this,"아이디 형식이 아닙니다.",Toast.LENGTH_SHORT).show();
-
                 }
                 else if (!Pattern.matches("^[a-zA-Z0-9!@.#$%^&*?_~]{6,20}$", userPassword)){
                     Toast.makeText(RegisterActivity.this,"비밀번호 형식이 아닙니다.",Toast.LENGTH_SHORT).show();
-
                 }
-
+                else if (!Pattern.matches("[가-힣a-zA-Z0-9!@.#$%^&*?_~]{1,10}$",userName)) {
+                    Toast.makeText(RegisterActivity.this, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else if(userAddress.equals("")){
+                    Toast.makeText(RegisterActivity.this,"거주지역을 입력해주세요",Toast.LENGTH_SHORT).show();
+                }
+                else if(userInfo.equals("")){
+                    Toast.makeText(RegisterActivity.this,"자기소개를 입력해주세요",Toast.LENGTH_SHORT).show();
+                }
                 else {
                     RegisterRequest registerRequest = new RegisterRequest(userType, userID, userPassword, userName, userSex, userAge, userAddress, userInfo, responseListner);
                     RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                     queue.add(registerRequest);
 
                 }
-
-
             }
         });{
         }
