@@ -26,8 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     TextView registerButton;
     CheckBox checkBox;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
+    public static SharedPreferences pref;
+    public static SharedPreferences.Editor editor;
     Boolean loginChecked;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +52,6 @@ public class LoginActivity extends AppCompatActivity {
             passwordText.setText(pref.getString("pw",""));
             checkBox.setChecked(true);
             loginChecked = true;
-
-
-
         }
 
         // set checkBoxListener
@@ -108,6 +105,10 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("id",idText.getText().toString());
                                     editor.putString("pw",passwordText.getText().toString());
                                     editor.putBoolean("autoLogin",true);
+                                    editor.commit();
+                                }
+                                else{
+                                    editor.putString("id",idText.getText().toString());
                                     editor.commit();
                                 }
                                 LoginActivity.this.startActivity(intent);

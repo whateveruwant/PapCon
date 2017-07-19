@@ -28,6 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import butterknife.ButterKnife;
 
@@ -66,8 +67,16 @@ public class RecommendFragment extends Fragment {
         userList = new ArrayList<User>();
 
         dataStr = "";
+        BackgroundTaskforTable making = new BackgroundTaskforTable();
+        making.execute();
+        try {
+            dataStr = making.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
-        new BackgroundTaskforTable().execute();
         try {
             JSONObject jsonObject = new JSONObject(dataStr);
             JSONArray jsonArray = jsonObject.getJSONArray("response");
@@ -86,9 +95,6 @@ public class RecommendFragment extends Fragment {
         catch (Exception e) {
             e.printStackTrace();
         }
-
-        userList.add(new User("qq","qq","qq","qq"));
-        userList.add(new User(dataStr,dataStr,dataStr,dataStr));
 
         UserListAdapter userListAdapter = new UserListAdapter(rootView.getContext(), userList);
         listView.setAdapter(userListAdapter);
@@ -115,6 +121,9 @@ public class RecommendFragment extends Fragment {
     }
 
     class BackgroundTaskforTable extends AsyncTask<Void, Void, String> {
+        @Override
+        protected void onPreExecute() {
+        }
 
         @Override
         protected String doInBackground(Void... params) {
@@ -146,7 +155,6 @@ public class RecommendFragment extends Fragment {
 
         @Override
         public void onPostExecute(String result) {
-            dataStr = result;
         }
     }
 
