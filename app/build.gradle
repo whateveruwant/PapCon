@@ -54,6 +54,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'org.jetbrains:annotations-java5:15.0'
 }
 
 File propFile = file('signing.properties');

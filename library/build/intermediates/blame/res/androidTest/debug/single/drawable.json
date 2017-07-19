@@ -2,5 +2,9 @@
     {
         "merged": "D:\\YuMin\\Android\\PapCon\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\psts_background_tab.xml",
         "source": "D:\\YuMin\\Android\\PapCon\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\psts_background_tab.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Documents\\GitHub\\PapCon\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\psts_background_tab.xml",
+        "source": "C:\\Users\\Administrator\\Documents\\GitHub\\PapCon\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\psts_background_tab.xml"
     }
 ]
